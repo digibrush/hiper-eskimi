@@ -25,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "digibrush\\hiper-eskimi\\": "src"
+            "digibrush\\HiperEskimi\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "digibrush\\hiper-eskimi\\": "tests"
+            "digibrush\\HiperEskimi\\": "tests"
         }
     },
     "scripts": {
