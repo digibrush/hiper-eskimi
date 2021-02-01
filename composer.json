@@ -12,7 +12,7 @@
         {
             "name": "Achintha Rodrigo",
             "email": "achintha@digibrush.net",
-            "homepage": "www.digibrush.net",
+            "homepage": "https://www.digibrush.net",
             "role": "Developer"
         }
     ],
@@ -25,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "digibrush\\HiperEskimi\\": "src"
+            "Digibrush\\HiperEskimi\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "digibrush\\HiperEskimi\\": "tests"
+            "Digibrush\\HiperEskimi\\": "tests"
         }
     },
     "scripts": {
