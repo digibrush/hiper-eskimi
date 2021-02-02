@@ -63,7 +63,7 @@ return [
      * this connection).
      */
 
-    'client_secret' => env('ESKIMI_CLIENT_SECRET'),
+    'access_token' => env('ESKIMI_CLIENT_SECRET'),
 
     /*
     * --------------------------------------------------------------------------
@@ -73,7 +73,7 @@ return [
      * to directly access the data from Eskimi
      */
 
-    'client_secret' => env('ESKIMI_ACCESS_TOKEN'),
+    'refresh_token' => env('ESKIMI_ACCESS_TOKEN'),
 
     /*
     * --------------------------------------------------------------------------
