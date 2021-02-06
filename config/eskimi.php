@@ -12,7 +12,7 @@ return [
     *
     */
 
-    'base_url' => env('ESKIMI_BASE_URL', 'https://dsp-api.eskimi.com/'),
+    'base_url' => '',
 
     /*
     * --------------------------------------------------------------------------
@@ -21,7 +21,7 @@ return [
      * This must be set to "eskimi_dsp"
      */
 
-    'grant_type' => env('ESKIMI_GRANT_TYPE', 'eskimi_dsp'),
+    'grant_type' => '',
 
     /*
     * --------------------------------------------------------------------------
@@ -31,7 +31,7 @@ return [
      * portal
      */
 
-    'username' => env('ESKIMI_DSP_USERNAME'),
+    'username' => '',
 
     /*
     * --------------------------------------------------------------------------
@@ -41,7 +41,7 @@ return [
      * portal
      */
 
-    'password' => env('ESKIMI_DSP_PASSWORD'),
+    'password' => '',
 
     /*
     * --------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return [
      * this connection).
      */
 
-    'client_id' => env('ESKIMI_CLIENT_ID'),
+    'client_id' => '',
 
     /*
     * --------------------------------------------------------------------------
@@ -63,7 +63,7 @@ return [
      * this connection).
      */
 
-    'access_token' => env('ESKIMI_CLIENT_SECRET'),
+    'client_secret' => '',
 
     /*
     * --------------------------------------------------------------------------
@@ -73,7 +73,7 @@ return [
      * to directly access the data from Eskimi
      */
 
-    'refresh_token' => env('ESKIMI_ACCESS_TOKEN'),
+    'access_token' => '',
 
     /*
     * --------------------------------------------------------------------------
@@ -82,5 +82,5 @@ return [
      * This Token will be generated using the above information
      */
 
-    'client_secret' => env('ESKIMI_REFRESH_TOKEN'),
+    'refresh_token' => '',
 ];
