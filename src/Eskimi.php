@@ -66,7 +66,7 @@ class Eskimi
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => $this->baseUrl.'/api/v1/campaign/get',
+            CURLOPT_URL => $this->baseUrl.'/api/v1/campaign/get?per_page=200',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -76,7 +76,7 @@ class Eskimi
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_POSTFIELDS =>'{
                 "userId": "'.$eskimi_account_id.'"
-            }',
+                }',
             CURLOPT_HTTPHEADER => array(
                 'Authorization: Bearer '.$this->accessToken,
                 'Content-Type: application/json'
