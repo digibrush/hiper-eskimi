@@ -63,30 +63,40 @@ class Eskimi
 
     public function getCampaignsListByAccount($eskimi_account_id)
     {
-        $curl = curl_init();
+        $campaignList = [];
+        $current_page = 1;
+        $pullDataFlag = true;
 
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => $this->baseUrl.'/api/v1/campaign/get?per_page=200',
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => '',
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS =>'{
+        while($pullDataFlag) {
+            $curl = curl_init();
+            curl_setopt_array($curl, array(
+                CURLOPT_URL => $this->baseUrl.'/api/v1/campaign/get?page='.$current_page.'&per_page=100',
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => '',
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 0,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => 'POST',
+                CURLOPT_POSTFIELDS =>'{
                 "userId": "'.$eskimi_account_id.'"
                 }',
-            CURLOPT_HTTPHEADER => array(
-                'Authorization: Bearer '.$this->accessToken,
-                'Content-Type: application/json'
-            ),
-        ));
+                CURLOPT_HTTPHEADER => array(
+                    'Authorization: Bearer '.$this->accessToken,
+                    'Content-Type: application/json'
+                ),
+            ));
 
-        $response = curl_exec($curl);
+            $response = curl_exec($curl);
+            curl_close($curl);
+            $tempData = json_decode($response);
+            $campaignList = array_merge($campaignList, $tempData->data);
 
-        curl_close($curl);
-        return json_decode($response);
+            $pullDataFlag = $current_page == $tempData->last_page ? false : true;
+            $current_page++;
+        };
+
+        return $campaignList;
     }
 
     public function getEskimiDataByAccount($campaigns, $start, $end)
