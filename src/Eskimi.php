@@ -116,8 +116,7 @@ class Eskimi
             CURLOPT_POSTFIELDS =>'{
                 "campaignIds": '.$campaignsStr.',
                 "dateFrom": "'.$start.'",
-                "dateTo": "'.$end.'",
-                "byDate": true
+                "dateTo": "'.$end.'"
             }',
             CURLOPT_HTTPHEADER => array(
                 'Authorization: Bearer '.$this->accessToken,
